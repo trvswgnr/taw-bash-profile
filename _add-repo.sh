@@ -31,8 +31,9 @@ addrepo() {
 
   if [[ $IS_ADDING = "y" ]] || [[ $IS_ADDING = "" ]]
   then
-    git remote add origin git@github.com:$GIT_USERNAME/$PROJECT_NAME.git
-    git push origin master
+    git remote add origin https://github.com/$GIT_USERNAME/$PROJECT_NAME.git
+    git push --porcelain --progress origin master
+    echo "added and pushed"
   else
     echo "complete"
   fi
