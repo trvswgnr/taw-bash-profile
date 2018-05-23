@@ -2,10 +2,8 @@
 
 ## Installation:
 
-Open Terminal or CLI and clone the repository:
-`git clone https://github.com/trvswgnr/taw-bash-profile.git`
-
-Run `sh ./install.sh`
+Open Terminal or CLI and run the following to clone and install:
+`git clone https://github.com/trvswgnr/taw-bash-profile.git ~/taw-bash-profile && cd ~/taw-bash-profile && sh ./install.sh`
 
 -- OR --
 
