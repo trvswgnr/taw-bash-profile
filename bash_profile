@@ -9,5 +9,3 @@ source ~/bash_profile/_files.sh
 source ~/bash_profile/_search.sh
 source ~/bash_profile/_network.sh
 source ~/bash_profile/_other.sh
-
-# test
