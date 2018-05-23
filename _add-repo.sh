@@ -4,7 +4,7 @@ addrepo() {
   EXISTING_NAME=$(git config user.name)
 
   # prompt user to use existing github username
-  read -p "is your GitHub username $EXISTING_NAME? (y/n): " IS_USING_EXISTING # -i "y" IS_USING_EXISTING
+  read -p "is your GitHub username $EXISTING_NAME? (y/n): " IS_USING_EXISTING
 
   # check if user chose yes to previous question
   if [ "$IS_USING_EXISTING" = "y" ]
