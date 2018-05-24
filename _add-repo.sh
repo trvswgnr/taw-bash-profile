@@ -7,7 +7,7 @@ addrepo() {
   read -p "is your GitHub username $EXISTING_NAME? (y/n): " IS_USING_EXISTING
 
   # check if user chose yes to previous question
-  if [ "$IS_USING_EXISTING" = "y" ]
+  if [ "$IS_USING_EXISTING" = "y" ] || [ "$IS_USING_EXISTING" = "" ]
   then
     GIT_USERNAME=$EXISTING_NAME
     echo "github username: $GIT_USERNAME"
@@ -27,7 +27,7 @@ addrepo() {
   JSON='{"name":'$WRAPPED_NAME',"description":'$WRAPPED_DESCRIPTION'}'
   curl -u $GIT_USERNAME https://api.github.com/user/repos -d $JSON
 
-  read -p "add remote and push? (y/n)" IS_ADDING
+  read -p "add remote and push? (y/n): " IS_ADDING
 
   if [[ $IS_ADDING = "y" ]] || [[ $IS_ADDING = "" ]]
   then
