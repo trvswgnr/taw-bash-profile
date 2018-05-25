@@ -4,7 +4,7 @@
 set completion-ignore-case On
 
 # navigation
-cd() { builtin cd "$@"; ls; }  # Always list directory contents upon 'cd'
+cd() { builtin cd "$@"; ls -Gp; }  # Always list directory contents upon 'cd'
 alias cd..='cd ../'            # Go back 1 directory level
 alias ..='cd ../'              # Go back 1 directory level (alias)
 alias ...='cd ../../'          # Go back 2 directory levels
@@ -25,10 +25,10 @@ alias edit_profile='edit ~/.bash_profile'
 alias load_profile='source ~/.bash_profile'
 
 # open file in preferred code editor
-alias edit='brackets' 
+alias edit='brackets'
 
 # Navigate to the MAMP websites folder
-alias htdocs='cd /Applications/MAMP/htdocs/' 
+alias htdocs='cd /Applications/MAMP/htdocs/'
 alias sites='htdocs'
 
 # use custom nano
