@@ -10,7 +10,7 @@ cd ..
 mv ./taw-bash-profile/ ~/bash_profile
 
 # move the bash profile to the home folder and rename
-cp ~/bash_profile/bash_profile ~/.bash_profile
+ln -s ~/bash_profile/bash_profile.sh ~/.bash_profile
 
 # colors to make the console prettier
 GOLD='\033[0;32m'
