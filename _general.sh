@@ -14,6 +14,7 @@ alias .='cd' # much small, very shorthand
 alias ls='ls -Gp'     # show files and folders in directory as grid
 alias ll='ls -FGlAhp' # show files and foders in a list
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # full recursive directory listing
+alias lsa='ls -Gpa'
 
 alias c='clear'                           # clear terminal display
 alias path='echo -e ${PATH//:/\\n}'       # echo all executable Paths
@@ -32,8 +33,8 @@ alias htdocs='cd /Applications/MAMP/htdocs/'
 alias sites='htdocs'
 
 # use custom nano
-alias my="PATH=/usr/local/bin:$PATH"
-alias nano="my nano"
+#alias my="PATH=/usr/local/bin:$PATH"
+#alias nano="my nano"
 
 # just a test function to make sure the file is included and working
 testing() { echo 'testing 1 2 3'; }

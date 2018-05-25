@@ -1,5 +1,5 @@
 # -- NETWORK -- #
- 
+
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'  # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
@@ -10,7 +10,10 @@ alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on 
 alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
- 
+
+# default web browser
+alias web='w3m'
+
 # display useful host related informaton
 ii() {
   echo -e "\nYou are logged on ${RED}$HOST"
