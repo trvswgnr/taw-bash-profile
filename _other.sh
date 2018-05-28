@@ -72,9 +72,9 @@ set_iterm_name() {
   echo -ne "\033]$mode;$@\007"
 }
 
-bothname () { set_iterm_name 0 $@; }
-tabname () { set_iterm_name 1 $@; }
-windowname () { set_iterm_name 2 $@; }
+nameboth () { set_iterm_name 0 $@; }
+nametab () { set_iterm_name 1 $@; }
+namewindow () { set_iterm_name 2 $@; }
 
 # -- REMINDERS & NOTES -- #
 
@@ -102,7 +102,31 @@ windowname () { set_iterm_name 2 $@; }
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
 
 # cli twitter client
-alias twitter='rainbowstream'
+alias twitter='rainbowstream -iot'
 
 # cli reddit client
 alias reddit='rtv --enable-media'
+# bash completion for the `wp` command
+
+_wp_complete() {
+	local OLD_IFS="$IFS"
+	local cur=${COMP_WORDS[COMP_CWORD]}
+
+	IFS=$'\n';  # want to preserve spaces at the end
+	local opts="$(wp cli completions --line="$COMP_LINE" --point="$COMP_POINT")"
+
+	if [[ "$opts" =~ \<file\>\s* ]]
+	then
+		COMPREPLY=( $(compgen -f -- $cur) )
+	elif [[ $opts = "" ]]
+	then
+		COMPREPLY=( $(compgen -f -- $cur) )
+	else
+		COMPREPLY=( ${opts[*]} )
+	fi
+
+	IFS="$OLD_IFS"
+	return 0
+}
+complete -o nospace -F _wp_complete wp
+alias getmusic='instantmusic'
