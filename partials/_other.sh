@@ -1,5 +1,17 @@
 # -- OTHER -- #
 
+# macvim
+alias macvim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+# slack cli
+alias slack='slackadaisical'
+
+# trello cli
+export TRELLO_USER=travisawagner
+export TRELLO_KEY=a33c559d42a8c233f2b2500c7a855252
+export TRELLO_TOKEN=e1ecc7f8ebc790692de64cd678d7115c42c5def97881d3e9e7a63a2a45bd8e96
+alias trello='3llo'
+
 # default mail client
 alias mail='alpine'
 
@@ -9,6 +21,13 @@ alias spotify='spotctl'
 # adds MongoDB to the PATH (user specific)
 #export PATH=/Users/travis/mongodb-osx-x86_64-3.2.6/bin:$PATH
 
+# PM functions
+source ~/.pm/pm.bash
+alias pma="pm add"
+alias pmg="pm go"
+alias pmrm="pm remove"
+alias pml="pm list"
+# end PM
 
 # Search manpage given in agument '1' for term given in argument '2' (case insensitive)
 # displays paginated result with colored search terms and two lines surrounding each hit.
@@ -19,7 +38,6 @@ mans () {
 
 # show the alias of some part (given some part of it)
 showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.bash_profile | grep -v '^\s*$' | less -FSRXc ; }
-
 
 # --WEB DEVELOPMENT -- #
 
@@ -106,8 +124,8 @@ alias twitter='rainbowstream -iot'
 
 # cli reddit client
 alias reddit='rtv --enable-media'
-# bash completion for the `wp` command
 
+# bash completion for the `wp` command
 _wp_complete() {
 	local OLD_IFS="$IFS"
 	local cur=${COMP_WORDS[COMP_CWORD]}
@@ -129,4 +147,40 @@ _wp_complete() {
 	return 0
 }
 complete -o nospace -F _wp_complete wp
+
+# search and download music just by looking up lyrics or any information
 alias getmusic='instantmusic'
+
+# add a new note to Apple Notes
+getnote() { osascript ~/programs/note/get-note.scpt "$1"; }
+
+note() {
+  FIRST=$1
+  shift
+  if [ $FIRST = "get" ]
+  then
+    getnote "$*"
+  else
+    osascript ~/programs/note/new-note.scpt "$FIRST" "$*"
+  fi
+}
+
+# display a quote on startup
+quote
+
+# default howdoi command to show more results
+#howdoi() {
+#  howdoi $* -c -n 5
+#}
+
+# thefuck? fixes wrong commands
+eval $(thefuck --alias)
+
+# generates gifs from mp4 files
+alias mp4togif='gifgen'
+
+# downloads a youtube video
+alias youtube='youtube-dl'
+
+# look up and download SoundCloud likes of a user (config file at ~/.nehmconfig)
+alias soundcloud='nehm'

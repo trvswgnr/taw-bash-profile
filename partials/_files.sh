@@ -1,6 +1,6 @@
 # -- FILE AND FOLDER MANAGEMENT -- #
 
-alias mv='mv -iv'        # move a file or folder 
+alias mv='mv -iv'        # move a file or folder
 alias cp='cp -iv'        # copy a file or folder
 alias mkdir='mkdir -pv'  # make a new directory
 mcd () { mkdir -p "$1" && cd "$1"; }      # makes new directory and jumps inside
@@ -13,12 +13,13 @@ alias make10mb='mkfile 10m ./10MB.dat'  # creates a file of 10mb size (all zeros
 
 # navigate to frontmost window of MacOS Finder
 cdf='cd `osascript -e "tell application \"Finder\" to if window 1 exists then if target of window 1 as string is not \":\" then get POSIX path of (target of window 1 as alias)"`'
- 
+
 # move a file to the MacOS trash
-trash () { command mv "$@" ~/.Trash ; }
+# trash () { command mv "$@" ~/.Trash ; }
+alias rm='trash'
 
 # open file in MacOS Quicklook Preview
-ql () { qlmanage -p "$*" >& /dev/null; }  
+ql () { qlmanage -p "$*" >& /dev/null; }
 
 # extract most know archives with one command
 extract () {
@@ -43,7 +44,7 @@ extract () {
 }
 
 # open current directory in MacOS Finder
-alias f='open -a Finder ./'
+alias finder='open -a Finder ./'
 
 # Pipe content to file on MacOS Desktop
 alias DT='tee ~/Desktop/terminalOut.txt'
