@@ -1,7 +1,7 @@
 # -- NETWORK -- #
 
 # mysql defaults
-alias mysql='mysql --host=localhost -uroot -proot'
+alias mysql='/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'  # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
