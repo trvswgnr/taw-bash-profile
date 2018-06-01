@@ -32,10 +32,16 @@ sudo -H python get-pip.py
 brew install go
 ```
 
+**Wget**
+```bash
+brew install wget
+```
+
 [brew]: https://brew.sh/
 
 ## Packages List:
 * [rtv][reddit] - Great reddit client
+* [pm][pm] - Quickly define project folders and navigate to them
 * [spotctl][spotify] - Spotify player
 * [trash][trash] - Safe alternative to `rm`
 * [slackadaisical][slack] - Basic Slack client
@@ -48,3 +54,4 @@ brew install go
 [slack]: https://github.com/bkanber/Slackadaisical
 [twitter]: http://lmgtfy.com/?q=rainbowstream
 [w3m]: http://brewformulas.org/W3m
+[pm]: https://github.com/Angelmmiguel/pm
