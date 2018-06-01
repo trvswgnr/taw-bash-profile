@@ -19,15 +19,7 @@ alias mail='alpine'
 alias spotify='spotctl'
 
 # adds MongoDB to the PATH (user specific)
-#export PATH=/Users/travis/mongodb-osx-x86_64-3.2.6/bin:$PATH
-
-# PM functions
-source ~/.pm/pm.bash
-alias pma="pm add"
-alias pmg="pm go"
-alias pmrm="pm remove"
-alias pml="pm list"
-# end PM
+# export PATH=/Users/travis/mongodb-osx-x86_64-3.2.6/bin:$PATH
 
 # Search manpage given in agument '1' for term given in argument '2' (case insensitive)
 # displays paginated result with colored search terms and two lines surrounding each hit.
