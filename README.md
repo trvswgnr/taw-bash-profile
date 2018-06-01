@@ -11,25 +11,40 @@ Download this repo. Open Finder. Move this folder to your home folder (i.e. "/Us
 
 
 ## Dependencies
-**HomeBrew**
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+**[Homebrew][brew]**
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 **Python**
-`brew install python && ln -s /usr/local/bin/python3 /usr/local/bin/python`
+```bash
+brew install python && ln -s /usr/local/bin/python3 /usr/local/bin/python
+```
 
 **PIP**
-`sudo -H python get-pip.py`
+```bash
+sudo -H python get-pip.py
+```
 
 **Go**
-`brew install go`
+```bash
+brew install go
+```
 
+[brew]: https://brew.sh/
 
 ## Packages List:
-* rtv - Great reddit client
-* spotctl - Spotify player
-* trash - Safe alternative to `rm`
-* slackadaisical - Basic Slack client
-* rainbowstream - Twitter stream
-* w3m - Web browser
+* [rtv][reddit] - Great reddit client
+* [spotctl][spotify] - Spotify player
+* [trash][trash] - Safe alternative to `rm`
+* [slackadaisical][slack] - Basic Slack client
+* [rainbowstream][twitter] - Twitter stream
+* [w3m][w3m] - Web browser
 
-
+[reddit]: https://github.com/michael-lazar/rtv
+[trash]: https://github.com/sindresorhus/trash-cli
+[spotify]: https://github.com/jingweno/spotctl
+[slack]: https://github.com/bkanber/Slackadaisical
+[twitter]: http://lmgtfy.com/?q=rainbowstream
+[w3m]: http://brewformulas.org/W3m
