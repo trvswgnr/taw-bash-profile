@@ -10,7 +10,7 @@ Open Terminal or CLI and run the following to clone and install:
 Download this repo. Open Finder. Move this folder to your home folder (i.e. "/Users/travis/") and rename the folder "bash_profile". Move `bash_profile` to your home folder, rename file to `.bash_profile`, and replace file if prompted.
 
 
-## Dependencies
+## Dependencies / Package Managers
 
 **[Homebrew][brew]**
 ```bash
