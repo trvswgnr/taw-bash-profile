@@ -13,4 +13,3 @@ source ~/bash_profile/partials/_other.sh
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # if command fortune >/dev/null; then fortune oblique; fi
-
