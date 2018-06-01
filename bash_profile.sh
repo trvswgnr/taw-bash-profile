@@ -9,7 +9,24 @@ source ~/bash_profile/partials/_files.sh
 source ~/bash_profile/partials/_search.sh
 source ~/bash_profile/partials/_network.sh
 source ~/bash_profile/partials/_other.sh
+source ~/bash_profile/partials/_processes.sh
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # if command fortune >/dev/null; then fortune oblique; fi
+
+# PM functions
+source ~/.pm/pm.bash
+alias pma="pm add"
+alias pmg="pm go"
+alias pmrm="pm remove"
+alias pml="pm list"
+# end PM
+
+# PM functions
+source ~/.pm/pm.bash
+alias pma="pm add"
+alias pmg="pm go"
+alias pmrm="pm remove"
+alias pml="pm list"
+# end PM
