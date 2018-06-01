@@ -1,4 +1,5 @@
-addrepo() {
+# creates a new github.com repository
+new-repo() {
   set -e
 
   EXISTING_NAME=$(git config user.name)
