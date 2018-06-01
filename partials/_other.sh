@@ -91,31 +91,6 @@ nameboth () { set_iterm_name 0 $@; }
 nametab () { set_iterm_name 1 $@; }
 namewindow () { set_iterm_name 2 $@; }
 
-# -- REMINDERS & NOTES -- #
-
-#   remove_disk: spin down unneeded disk
-#   diskutil eject /dev/disk1s3
-
-#   # change the password on an encrypted disk image:
-#   hdiutil chpass /path/to/the/diskimage
-
-#   # mount a read-only disk image as read-write:
-#   hdiutil attach example.dmg -shadow /tmp/example.shadow -noverify
-
-#   mounting a removable drive (of type msdos or hfs)
-#   ---------------------------------------
-#   mkdir /Volumes/Foo
-#   ls /dev/disk*   to find out the device to use in the mount command)
-#   mount -t msdos /dev/disk1s1 /Volumes/Foo
-#   mount -t hfs /dev/disk1s1 /Volumes/Foo
-
-#   create a file of a given size: /usr/sbin/mkfile or /usr/bin/hdiutil
-#   ---------------------------------------
-#   e.g.: mkfile 10m 10MB.dat
-#   e.g.: hdiutil create -size 10m 10MB.dmg
-#   the above create files that are almost all zeros - if random bytes are desired
-#   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
-
 # cli twitter client
 alias twitter='rainbowstream -iot'
 
@@ -181,3 +156,6 @@ alias youtube='youtube-dl'
 
 # look up and download SoundCloud likes of a user (config file at ~/.nehmconfig)
 alias soundcloud='nehm'
+
+# open a new google chrome window
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
