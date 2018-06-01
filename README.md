@@ -17,8 +17,12 @@ Download this repo. Open Finder. Move this folder to your home folder (i.e. "/Us
 **Python**
 `brew install python && ln -s /usr/local/bin/python3 /usr/local/bin/python`
 
+**PIP**
+`sudo -H python get-pip.py`
+
 **Go**
 `brew install go`
+
 
 ## Packages List:
 * rtv - Great reddit client
