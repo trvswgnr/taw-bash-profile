@@ -55,6 +55,11 @@ function parse_git_branch {
   echo " ("${ref#refs/heads/}")"
 }
 
+# new WordPress Installation
+new-wp(){
+  git clone https://github.com/WordPress/WordPress.git $1
+}
+
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
