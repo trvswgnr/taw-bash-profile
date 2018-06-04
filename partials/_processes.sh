@@ -22,3 +22,5 @@ alias ttop="top -R -F -s 10 -o rsize"
 
 #  List processes owned by my user:
 my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
+
+alias restart="exec -l $SHELL"
