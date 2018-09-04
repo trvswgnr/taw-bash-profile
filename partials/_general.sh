@@ -32,6 +32,15 @@ alias edit='brackets'
 alias htdocs='cd /Applications/MAMP/htdocs/'
 alias sites='htdocs'
 
+# search in history, or show last 10 history items if no var
+h() {
+  if [ -z "$1" ]; then
+    history 15
+  else
+    history | grep $1
+  fi
+}
+
 # use custom nano
 #alias my="PATH=/usr/local/bin:$PATH"
 #alias nano="my nano"
