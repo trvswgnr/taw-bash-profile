@@ -1,33 +1,5 @@
 # -- OTHER -- #
 
-# macvim
-alias macvim='/Applications/MacVim.app/Contents/MacOS/Vim'
-
-# slack cli
-alias slack='slackadaisical'
-
-# trello cli
-export TRELLO_USER=travisawagner
-export TRELLO_KEY=a33c559d42a8c233f2b2500c7a855252
-export TRELLO_TOKEN=e1ecc7f8ebc790692de64cd678d7115c42c5def97881d3e9e7a63a2a45bd8e96
-alias trello='3llo'
-
-# default mail client
-alias mail='alpine'
-
-# control spotify opened on any device from command line
-alias spotify='spotctl'
-
-# adds MongoDB to the PATH (user specific)
-# export PATH=/Users/travis/mongodb-osx-x86_64-3.2.6/bin:$PATH
-
-# Search manpage given in agument '1' for term given in argument '2' (case insensitive)
-# displays paginated result with colored search terms and two lines surrounding each hit.
-# Example: mans mplayer codec
-mans () {
-  man $1 | grep -iC2 --color=always $2 | less
-}
-
 # show the alias of some part (given some part of it)
 showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.bash_profile | grep -v '^\s*$' | less -FSRXc ; }
 
@@ -55,47 +27,12 @@ function parse_git_branch {
   echo " ("${ref#refs/heads/}")"
 }
 
+# -- Random Useful Things -- #
+
 # new WordPress Installation
 new-wp(){
   git clone https://github.com/WordPress/WordPress.git $1
 }
-
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-SEAFOAM="\[\033[0;34m\]"
-NO_COLOR="\[\033[0m\]"
-MAGENTA="\[\033[0;31m\]"
-GOLD="\[\033[0;32m\]"
-BLUE="\[\033[0;33m\]"
-
-export PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE\$(parse_git_branch)$SEAFOAM \$$NO_COLOR "
-
-
-# -- Random Useful Things -- #
-
-# send an imessage
-imessage() {
-  osascript ~/programs/imessage.scpt $1 $2
-}
-# Run a screensaver as the desktop background
-alias screensaverBackground='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
-
-# set iterm tab and window names
-set_iterm_name() {
-  mode=$1; shift
-  echo -ne "\033]$mode;$@\007"
-}
-
-nameboth () { set_iterm_name 0 $@; }
-nametab () { set_iterm_name 1 $@; }
-namewindow () { set_iterm_name 2 $@; }
-
-# cli twitter client
-alias twitter='rainbowstream -iot'
-
-# cli reddit client
-alias reddit='rtv --enable-media'
 
 # bash completion for the `wp` command
 _wp_complete() {
@@ -123,31 +60,6 @@ complete -o nospace -F _wp_complete wp
 # search and download music just by looking up lyrics or any information
 alias getmusic='instantmusic'
 
-# add a new note to Apple Notes
-getnote() { osascript ~/programs/note/get-note.scpt "$1"; }
-
-note() {
-  FIRST=$1
-  shift
-  if [ $FIRST = "get" ]
-  then
-    getnote "$*"
-  else
-    osascript ~/programs/note/new-note.scpt "$FIRST" "$*"
-  fi
-}
-
-# display a quote on startup
-quote
-
-# default howdoi command to show more results
-#howdoi() {
-#  howdoi $* -c -n 5
-#}
-
-# thefuck? fixes wrong commands
-eval $(thefuck --alias)
-
 # generates gifs from mp4 files
 alias mp4togif='gifgen'
 
@@ -160,4 +72,32 @@ alias soundcloud='nehm'
 # open a new google chrome window
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
+# get my fire playlist
 alias get-fire="cd && cd Music && scdl -l https://soundcloud.com/justfendz/sets/fire --download-archive archive.txt -c"
+
+# open file in preferred code editor
+alias edit='brackets'
+
+# cli twitter client
+alias twitter='rainbowstream -iot'
+
+# cli reddit client
+alias reddit='rtv --enable-media'
+
+# default web browser
+alias web='w3m'
+
+# slack cli
+alias slack='slackadaisical'
+
+# trello cli
+export TRELLO_USER=travisawagner
+export TRELLO_KEY=a33c559d42a8c233f2b2500c7a855252
+export TRELLO_TOKEN=e1ecc7f8ebc790692de64cd678d7115c42c5def97881d3e9e7a63a2a45bd8e96
+alias trello='3llo'
+
+# default mail client
+alias mail='alpine'
+
+# control spotify opened on any device from command line
+alias spotify='spotctl'

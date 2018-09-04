@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # -- NETWORK -- #
 
 # mysql defaults
@@ -13,9 +12,6 @@ alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on 
 alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
-
-# default web browser
-alias web='w3m'
 
 # display useful host related informaton
 ii() {

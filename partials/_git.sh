@@ -1,5 +1,4 @@
  # -- GIT -- #
-
 source ~/bash_profile/partials/_add-repo.sh
 
 alias git-change='git checkout'

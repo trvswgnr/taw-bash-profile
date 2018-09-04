@@ -1,7 +1,5 @@
 # -- MAKE TERMINAL BETTER -- #
 
-# makes tab-completion case-insensitive
-
 # navigation
 cd() { builtin cd "$@"; ls -Gp --color; }  # Always list directory contents upon 'cd'
 alias cd..='cd ../'            # Go back 1 directory level
@@ -24,12 +22,21 @@ alias fix_stty='stty sane'                # restore terminal settings when screw
 alias edit_profile='edit ~/.bash_profile'
 alias load_profile='source ~/.bash_profile'
 
-# open file in preferred code editor
-alias edit='brackets'
-
 # Navigate to the MAMP websites folder
 alias htdocs='cd /Applications/MAMP/htdocs/'
 alias sites='htdocs'
+
+# change the terminal prompt
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+SEAFOAM="\[\033[0;34m\]"
+NO_COLOR="\[\033[0m\]"
+MAGENTA="\[\033[0;31m\]"
+GOLD="\[\033[0;32m\]"
+BLUE="\[\033[0;33m\]"
+
+export PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE\$(parse_git_branch)$SEAFOAM \$$NO_COLOR "
 
 # just a test function to make sure the file is included and working
 testing() { echo 'testing 1 2 3'; }
