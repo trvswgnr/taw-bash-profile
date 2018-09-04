@@ -2,9 +2,8 @@
 
 ## Installation:
 
-Open Terminal or CLI and run the following to clone and install:
-`git clone https://github.com/trvswgnr/taw-bash-profile.git ~/taw-bash-profile && cd ~/taw-bash-profile && sh ./install.sh`
+Download this repo. Open Windows Explorer. Move this folder to your home folder and rename the folder "bash_profile". Open CMD (press Windows key and type `cmd` then press enter). Run this command to create a symbolic link to the bash profile (this lets you version control inside this folder):
 
--- OR --
+`mklink .bash_profile c:\Users\YOUR_WINDOWS_USERNAME\bash_profile\bash_profile.sh`
 
-Download this repo. Open Windows Explorer. Move this folder to your home folder  and rename the folder "bash_profile". Move `bash_profile` to your home folder, rename file to `.bash_profile`, and replace file if prompted.
+Open a new bash terminal window to see changes.
