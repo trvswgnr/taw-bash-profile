@@ -159,3 +159,5 @@ alias soundcloud='nehm'
 
 # open a new google chrome window
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+alias get-fire="cd && cd Music && scdl -l https://soundcloud.com/justfendz/sets/fire --download-archive archive.txt -c"

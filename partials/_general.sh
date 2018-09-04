@@ -1,17 +1,16 @@
 # -- MAKE TERMINAL BETTER -- #
 
 # makes tab-completion case-insensitive
-set completion-ignore-case On
 
 # navigation
-cd() { builtin cd "$@"; ls -Gp; }  # Always list directory contents upon 'cd'
+cd() { builtin cd "$@"; ls -Gp --color; }  # Always list directory contents upon 'cd'
 alias cd..='cd ../'            # Go back 1 directory level
 alias ..='cd ../'              # Go back 1 directory level (alias)
 alias ...='cd ../../'          # Go back 2 directory levels
 alias .='cd' # much small, very shorthand
 
 # listing
-alias ls='ls -Gp'     # show files and folders in directory as grid
+alias ls='ls -Gp --color'     # show files and folders in directory as grid
 alias ll='ls -FGlAhp' # show files and foders in a list
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # full recursive directory listing
 alias lsa='ls -Gpa'
@@ -31,10 +30,6 @@ alias edit='brackets'
 # Navigate to the MAMP websites folder
 alias htdocs='cd /Applications/MAMP/htdocs/'
 alias sites='htdocs'
-
-# use custom nano
-#alias my="PATH=/usr/local/bin:$PATH"
-#alias nano="my nano"
 
 # just a test function to make sure the file is included and working
 testing() { echo 'testing 1 2 3'; }

@@ -16,7 +16,7 @@ cdf='cd `osascript -e "tell application \"Finder\" to if window 1 exists then if
 
 # move a file to the MacOS trash
 # trash () { command mv "$@" ~/.Trash ; }
-alias rm='trash'
+#alias rm='trash'
 
 # open file in MacOS Quicklook Preview
 ql () { qlmanage -p "$*" >& /dev/null; }
