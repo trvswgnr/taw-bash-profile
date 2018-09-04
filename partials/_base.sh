@@ -3,6 +3,9 @@
 # ignore case
 set completion-ignore-case On
 
+# dont allow files to be overwritten (e.g. echo "test" > file.txt)
+set -o noclobber
+
 # Set default blocksize for ls, df, du
 # http://hints.macworld.com/comment.php?mode=view&cid=24491
 export BLOCKSIZE=1k
