@@ -3,23 +3,14 @@
 alias mv='mv -iv'        # move a file or folder
 alias cp='cp -iv'        # copy a file or folder
 alias mkdir='mkdir -pv'  # make a new directory
-mcd () { mkdir -p "$1" && cd "$1"; }      # makes new directory and jumps inside
+mcd () { mkdir -p "$1" && cd "$1"; }  # makes new directory and jumps inside
 
-zipf () { zip -r "$1".zip "$1" ; }      # to create a ZIP archive of a folder
 alias numFiles='echo $(ls -1 | wc -l)'  # count of non-hidden files in current dir
-alias make1mb='mkfile 1m ./1MB.dat'     # creates a file of 1mb size (all zeros)
-alias make5mb='mkfile 5m ./5MB.dat'     # creates a file of 5mb size (all zeros)
-alias make10mb='mkfile 10m ./10MB.dat'  # creates a file of 10mb size (all zeros)
 
-# navigate to frontmost window of MacOS Finder
-cdf='cd `osascript -e "tell application \"Finder\" to if window 1 exists then if target of window 1 as string is not \":\" then get POSIX path of (target of window 1 as alias)"`'
-
-# move a file to the MacOS trash
-# trash () { command mv "$@" ~/.Trash ; }
-#alias rm='trash'
-
-# open file in MacOS Quicklook Preview
-ql () { qlmanage -p "$*" >& /dev/null; }
+# create files
+alias make1mb='mkfile 1m ./1MB.dat'
+alias make5mb='mkfile 5m ./5MB.dat'
+alias make10mb='mkfile 10m ./10MB.dat'
 
 # extract most know archives with one command
 extract () {
@@ -57,3 +48,6 @@ mkalias() {
     ln -s "$1"
   fi
 }
+
+# delete .DS_Store files
+alias deleteDS="find . -type f -name '*.DS_Store' -ls -delete"
