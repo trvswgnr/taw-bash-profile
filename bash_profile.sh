@@ -21,5 +21,20 @@ alias portal="cd ~/Code/gtmc/ClientPortal/"
 alias go-docker="cd ~/Code/gtmc/Docker"
 
 # display a quote on open
-quote
+quo() {
+q=$(quote)
+echo $q
+while true; do
+  read -p "Save this quote? [y/n]" yn
+  case $yn in
+    [""]* ) echo '"'$q'"' >> ~/quotes.csv; break;;
+    [Yy]* ) echo '"'$q'"' >> ~/quotes.csv; break;;
+    [Nn]* ) exit;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
+}
+quo
 
+# edit the vimrc
+alias vimrc="vim ~/.vimrc"
