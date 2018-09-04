@@ -8,7 +8,7 @@ alias ...='cd ../../'          # Go back 2 directory levels
 alias .='cd' # much small, very shorthand
 
 # listing
-alias ls='ls -Gp --color'     # show files and folders in directory as grid
+alias ls='ls -Gp --color=auto'     # show files and folders in directory as grid
 alias ll='ls -FGlAhp' # show files and foders in a list
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # full recursive directory listing
 alias lsa='ls -Gpa'
@@ -40,3 +40,12 @@ export PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE
 
 # just a test function to make sure the file is included and working
 testing() { echo 'testing 1 2 3'; }
+
+# search in history, or show last 10 history items if no var
+h() {
+  if [ -z "$1" ]; then
+    history 15
+  else
+    history | grep $1
+  fi
+}
