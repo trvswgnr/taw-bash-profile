@@ -26,7 +26,6 @@ alias load_profile='source ~/.bash_profile'
 alias htdocs='cd /Applications/MAMP/htdocs/'
 alias sites='htdocs'
 
-<<<<<<< HEAD
 # change the terminal prompt
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
