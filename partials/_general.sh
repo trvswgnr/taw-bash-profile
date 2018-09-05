@@ -26,6 +26,7 @@ alias load_profile='source ~/.bash_profile'
 alias htdocs='cd /Applications/MAMP/htdocs/'
 alias sites='htdocs'
 
+<<<<<<< HEAD
 # change the terminal prompt
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
@@ -37,6 +38,20 @@ GOLD="\[\033[0;32m\]"
 BLUE="\[\033[0;33m\]"
 
 export PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE\$(parse_git_branch)$SEAFOAM \$$NO_COLOR "
+=======
+# search in history, or show last 10 history items if no var
+h() {
+  if [ -z "$1" ]; then
+    history 15
+  else
+    history | grep $1
+  fi
+}
+
+# use custom nano
+#alias my="PATH=/usr/local/bin:$PATH"
+#alias nano="my nano"
+>>>>>>> 2fc9e4a5e18475fd1a40acc8b664dd75d3e7a784
 
 # just a test function to make sure the file is included and working
 testing() { echo 'testing 1 2 3'; }
