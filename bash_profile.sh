@@ -22,3 +22,6 @@ alias go-docker="cd ~/Code/gtmc/Docker"
 
 # edit the vimrc
 alias vimrc="vim ~/.vimrc"
+
+# set the terminal colors
+export TERM=xterm-256color
