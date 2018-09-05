@@ -9,8 +9,8 @@ source ~/bash_profile/partials/_files.sh
 source ~/bash_profile/partials/_search.sh
 source ~/bash_profile/partials/_network.sh
 source ~/bash_profile/partials/_processes.sh
-source ~/bash_profile/partials/_system-ops.sh
 source ~/bash_profile/partials/_other.sh
+source ~/bash_profile/partials/_quote.sh
 
 # add anything workspace-specific here
 alias wget="'/c/Program Files (x86)/GnuWin32/bin/wget'"
