@@ -7,7 +7,8 @@ alias st="git status"
 alias checkout='git checkout'
 alias status='git status'
 alias gti='git'
+alias gitt='git'
 gcaa() { git add --all && git commit -m "$*" ; } # add and commit all files
 
 commit() { git commit -m "$*"  ; }
-acommit() { git add $1 && git commit -m "$*" ; }
+acommit() { git add $1 && git commit -m "${*:2}" ; }
