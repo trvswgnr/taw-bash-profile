@@ -1,6 +1,7 @@
  # -- GIT -- #
 
-source ~/bash_profile/partials/_add-repo.sh
+source ~/bash_profile/partials/git/_git-auto-completion.sh
+source ~/bash_profile/partials/git/_add-repo.sh
 
 alias git-change='git checkout'
 alias cbranch='git checkout'
