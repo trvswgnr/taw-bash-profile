@@ -137,9 +137,6 @@ note() {
   fi
 }
 
-# display a quote on startup
-quote
-
 # default howdoi command to show more results
 #howdoi() {
 #  howdoi $* -c -n 5
