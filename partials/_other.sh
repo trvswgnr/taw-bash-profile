@@ -121,7 +121,7 @@ _wp_complete() {
 complete -o nospace -F _wp_complete wp
 
 # search and download music just by looking up lyrics or any information
-alias getmusic='instantmusic'
+alias get-music='instantmusic'
 
 # add a new note to Apple Notes
 getnote() { osascript ~/programs/note/get-note.scpt "$1"; }
