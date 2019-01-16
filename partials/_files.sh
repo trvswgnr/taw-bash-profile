@@ -57,3 +57,18 @@ mkalias() {
     ln -s "$1"
   fi
 }
+
+# batch rename filenames in current directory
+batch-rename() {
+	EXT=${3:-}
+	OLD=${1:--h}
+	NEW=${2:-}
+
+	# show help if no parameters
+	if [ $OLD = "-h" ]; then
+		echo "USAGE:"
+		echo "batch-rename original replacement(defaults to nothing) extension(defaults to all)"
+	else
+		for file in *$EXT ; do mv $file ${file//$OLD/$NEW} ; done
+	fi
+}
