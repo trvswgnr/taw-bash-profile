@@ -156,3 +156,7 @@ alias soundcloud='nehm'
 
 # open a new google chrome window
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+# empty mail to get rid of annoying messages
+empty-mail() { : > /var/mail/$USER ; }
+alias delete-mail='empty-mail'
