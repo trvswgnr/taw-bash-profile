@@ -174,7 +174,7 @@ brackets-is-running() {
 	BRACKETS_OPEN=$(isrunning Brackets)
 	if [ $BRACKETS_OPEN = "true" ]
 	then
-		terminal-notifier -message "Brackets is open, are you tracking your time?" -title "Check Timers"
+		terminal-notifier -message "Brackets is open, are you tracking your time?" -title "Check Timers" -execute "null"
 	fi
 }
 
