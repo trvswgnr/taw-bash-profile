@@ -11,4 +11,3 @@ while true; do
   esac
 done
 }
-q

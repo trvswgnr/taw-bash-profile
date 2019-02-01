@@ -56,9 +56,16 @@ function parse_git_branch {
 }
 
 # new WordPress Installation
-new-wp(){
-  git clone https://github.com/WordPress/WordPress.git $1
+wpclone() {
+	FOLDER=${1:--h}
+	if [ $FOLDER == "-h" ]; then
+		printf "\nUSAGE: wpclone \$FOLDER\n\n"
+	else
+		git clone https://github.com/WordPress/WordPress.git $FOLDER
+	fi
 }
+alias newwp="wpclone"
+alias new-wp="wpclone"
 
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
@@ -160,3 +167,28 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 # empty mail to get rid of annoying messages
 empty-mail() { : > /var/mail/$USER ; }
 alias delete-mail='empty-mail'
+
+isrunning() {
+	SERVICE=$1
+	if pgrep -f "$SERVICE" >/dev/null 2>&1 ; then
+		echo "true"
+	else
+		echo "false"
+	fi
+}
+
+brackets-is-running() {
+	BRACKETS_OPEN=$(isrunning Brackets)
+	if [ $BRACKETS_OPEN = "true" ]
+	then
+		terminal-notifier -message "Brackets is open, are you tracking your time?" -title "Check Timers" -execute "null"
+	fi
+}
+
+# check if brackets is running every 1.5 hours and remind me with a notification
+checktimers() {
+	while true; do brackets-is-running; sleep 5400; done
+}
+
+# get the name of wordpress installation folder from theme location (useful for setting node env variables dynamically)
+wp-directory-name() { PARENT_DIR3=$(dirname $(dirname $(dirname $(pwd)))) ; PARENT_DIR3_TRIMMED=${PARENT_DIR3##*/} ; ENV_WP_FOLDER=$PARENT_DIR3_TRIMMED ; }
