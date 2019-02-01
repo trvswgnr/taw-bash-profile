@@ -56,9 +56,16 @@ function parse_git_branch {
 }
 
 # new WordPress Installation
-new-wp(){
-  git clone https://github.com/WordPress/WordPress.git $1
+wpclone() {
+	FOLDER=${1:--h}
+	if [ $FOLDER == "-h" ]; then
+		printf "\nUSAGE: wpclone \$FOLDER\n\n"
+	else
+		git clone https://github.com/WordPress/WordPress.git $FOLDER
+	fi
 }
+alias newwp="wpclone"
+alias new-wp="wpclone"
 
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
@@ -182,3 +189,6 @@ brackets-is-running() {
 checktimers() {
 	while true; do brackets-is-running; sleep 5400; done
 }
+
+# get the name of wordpress installation folder from theme location (useful for setting node env variables dynamically)
+wp-directory-name() { PARENT_DIR3=$(dirname $(dirname $(dirname $(pwd)))) ; PARENT_DIR3_TRIMMED=${PARENT_DIR3##*/} ; ENV_WP_FOLDER=$PARENT_DIR3_TRIMMED ; }
