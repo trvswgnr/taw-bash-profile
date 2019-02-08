@@ -195,3 +195,38 @@ checktimers() {
 
 # get the name of wordpress installation folder from theme location (useful for setting node env variables dynamically)
 wp-directory-name() { PARENT_DIR3=$(dirname $(dirname $(dirname $(pwd)))) ; PARENT_DIR3_TRIMMED=${PARENT_DIR3##*/} ; ENV_WP_FOLDER=$PARENT_DIR3_TRIMMED ; }
+
+# ssh
+new-ssh() {
+  FILENAME="trav"
+  COMMENT="$USER @$USER-computer"
+  TYPE="rsa"
+  BITS=4096
+  NOPASS=""
+
+  print_usage() {
+    printf "Usage: new-ssh
+      -f FILENAME
+      -c COMMENT
+      -t TYPE
+      -b: bits
+      -p: remove password prompt"
+  }
+
+  while getopts 'fctbph' flag; do
+    case "${flag}" in
+      f) FILENAME="${OPTARG}" ;;
+      c) COMMENT=${OPTARG} ;;
+      t) TYPE=${OPTARG} ;;
+      b) BITS=${OPTARG} ;;
+      p) NOPASS='-q -N ""' ;;
+      h) print_usage
+         return 1 ;;
+      *) print_usage
+         return 1 ;;
+    esac
+  done
+
+  echo $FILENAME
+#  ssh-keygen -t $TYPE -b $BITS -C "$COMMENT" -f ~/.ssh/$FILENAME $NOPASS
+}
