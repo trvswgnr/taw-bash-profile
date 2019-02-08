@@ -158,6 +158,9 @@ alias mp4togif='gifgen'
 # downloads a youtube video
 alias youtube='youtube-dl'
 
+# download youtube link as MP3
+alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3 "
+
 # look up and download SoundCloud likes of a user (config file at ~/.nehmconfig)
 alias soundcloud='nehm'
 
