@@ -12,6 +12,7 @@ source ~/bash_profile/partials/_other.sh
 source ~/bash_profile/partials/_processes.sh
 source ~/bash_profile/partials/_system-ops.sh
 source ~/bash_profile/partials/_quote.sh
+source ~/bash_profile/partials/_ssh.sh
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
