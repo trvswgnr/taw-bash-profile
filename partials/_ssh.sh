@@ -5,24 +5,27 @@ new-ssh() {
   FILENAME="false"
   COMMENT="$USER@$USER.local"
   BITS=4096
+  DIRECTORY="~/.ssh"
   NOPASS='true'
 
   helpmenu() {
-    printf "Usage: new-ssh
-      -f: filename (default: id_rsa)
-      -c: comment (default USER@USER.local)
-      -t: key type (default: rsa)
-      -b: encryption bits (default: 4096)
+    printf "Usage: ${FUNCNAME[0]}
+      -f string: Use custom filename (default: id_rsa)
+      -c string: (default USER@USER.local)
+      -t rsa, dsa, ecdsa: key type (default: rsa)
+      -b number: encryption bits (default: 4096)
+      -d string: Directory where key will be placed (default: ~/.ssh/)
       -p: show passphrase prompt when creating key
-      -h: shows this menu"
+      -h: display this menu"
   }
 
-  while getopts ":f:c:t:b:p" opt; do
+  while getopts ":f:c:t:b:d:p" opt; do
     case $opt in
       f) FILENAME="$OPTARG";;
       c) COMMENT="$OPTARG";;
       t) TYPE="$OPTARG";;
       b) BITS="$OPTARG";;
+      d) DIRECTORY="${OPTARG%/}";;
       p) NOPASS="false";;
       \?) helpmenu; return 1;;
     esac
@@ -39,27 +42,28 @@ new-ssh() {
   fi
 
   if [ $NOPASS = "false" ]; then
-    ssh-keygen -t $TYPE -b $BITS -C "$COMMENT" -f ~/.ssh/$FILENAME
+    ssh-keygen -t $TYPE -b $BITS -C "$COMMENT" -f ~/.ssh/$FILENAME -q
   else
     ssh-keygen -t $TYPE -b $BITS -C "$COMMENT" -f ~/.ssh/$FILENAME -q -N ""
   fi
 
   # check for errors, and print success message if none
   if [ $? -eq 0 ]; then
-    printf "\nSuccessfully created $TYPE keypair at ~/.ssh/$FILENAME with no passphrase ($BITS encryption)"
+    printf "\nCreated $TYPE keypair at $DIRECTORY/$FILENAME with no passphrase ($BITS encryption)\n"
 
     if [[ "$OSTYPE" == "darwin"* ]]; then # detect if Mac OS and add to keychain
+      printf "\n- Mac Detected -\n"
       ssh-add -K ~/.ssh/$FILENAME
     else # otherwhise regular ssh agent add
       ssh-add ~/.ssh/$FILENAME
     fi
     #
     if [ $? -eq 0 ]; then # check for errors, and print success message if none
-      printf "\nAdded $FILENAME key to ssh-agent"
+      printf "\nSuccessfully created and added keys\n"
     else
-      printf "\nError adding $FILENAME key to ssh-agent"
+      printf "\nError adding $FILENAME key to ssh-agent\n"
     fi
   else
-    printf "\nFailed to create/add ssh keys"; return 1;
+    printf "\nFailed to create/add ssh key\n"; return 1;
   fi
 }
