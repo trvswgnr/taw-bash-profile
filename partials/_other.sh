@@ -198,35 +198,62 @@ wp-directory-name() { PARENT_DIR3=$(dirname $(dirname $(dirname $(pwd)))) ; PARE
 
 # ssh
 new-ssh() {
-  FILENAME="trav"
-  COMMENT="$USER @$USER-computer"
+  OPTIND=1 # restart getopts index (otherwise will only take options the first time it's run)
   TYPE="rsa"
+  FILENAME="false"
+  COMMENT="$USER@$USER.local"
   BITS=4096
-  NOPASS=""
+  NOPASS='true'
 
-  print_usage() {
+  helpmenu() {
     printf "Usage: new-ssh
-      -f FILENAME
-      -c COMMENT
-      -t TYPE
-      -b: bits
-      -p: remove password prompt"
+      -f: filename (default: id_rsa)
+      -c: comment (default USER@USER.local)
+      -t: key type (default: rsa)
+      -b: encryption bits (default: 4096)
+      -p: show passphrase prompt when creating key
+      -h: shows this menu"
   }
 
-  while getopts 'fctbph' flag; do
-    case "${flag}" in
-      f) FILENAME="${OPTARG}" ;;
-      c) COMMENT=${OPTARG} ;;
-      t) TYPE=${OPTARG} ;;
-      b) BITS=${OPTARG} ;;
-      p) NOPASS='-q -N ""' ;;
-      h) print_usage
-         return 1 ;;
-      *) print_usage
-         return 1 ;;
+  while getopts ":f:c:t:b:p" opt; do
+    case $opt in
+      f) FILENAME="$OPTARG"
+      ;;
+      c) COMMENT="$OPTARG"
+      ;;
+      t) TYPE="$OPTARG"
+      ;;
+      b) BITS="$OPTARG"
+      ;;
+      p) NOPASS="false"
+      ;;
+      \?) helpmenu
+        return 2
+      ;;
     esac
   done
 
-  echo $FILENAME
-#  ssh-keygen -t $TYPE -b $BITS -C "$COMMENT" -f ~/.ssh/$FILENAME $NOPASS
+  if [ $FILENAME = "false" ]
+  then
+    FILENAME="id_$TYPE"
+  fi
+
+  if [ $TYPE = "dsa" ]
+  then
+    BITS=1024 # dsa must use this
+  fi
+
+  if [ $NOPASS = "false" ]
+  then
+    ssh-keygen -t $TYPE -b $BITS -C "$COMMENT" -f ~/.ssh/$FILENAME
+  else
+    ssh-keygen -t $TYPE -b $BITS -C "$COMMENT" -f ~/.ssh/$FILENAME -q -N ""
+  fi
+
+  if [ $? -eq 0 ]
+  then
+    printf "\nSuccessfully created $TYPE key at ~/.ssh/$FILENAME with no passphrase ($BITS encryption)"
+  else
+    printf "\nFailed to create ssh keys"
+  fi
 }
