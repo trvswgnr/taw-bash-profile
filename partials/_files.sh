@@ -52,11 +52,12 @@ alias DT='tee ~/Desktop/terminalOut.txt'
 # make an alias (shortcut file)
 mkalias() {
   if [ "$2" != "" ]; then
-    ln -s "$1" "$2"
+    ln -s "$1" "${2%/}"
   else
     ln -s "$1"
   fi
 }
+alias symlink="mkalias"
 
 # batch rename filenames in current directory
 batch-rename() {
