@@ -26,7 +26,7 @@ alias edit_profile='edit ~/.bash_profile'
 alias load_profile='source ~/.bash_profile'
 
 # open file in preferred code editor
-alias edit='brackets'
+alias edit='code'
 
 # Navigate to the MAMP websites folder
 alias htdocs='cd /Applications/MAMP/htdocs/'
