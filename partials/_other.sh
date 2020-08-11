@@ -77,7 +77,19 @@ GOLD="\[\033[0;32m\]"
 BLUE="\[\033[0;34m\]"
 NC="\[\033[0m\]"
 
-export PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE\$(parse_git_branch)$SEAFOAM \$$NO_COLOR "
+current_branch() {
+	PREFIX=' ('
+	SUFFIX=")"
+	git rev-parse --abbrev-ref HEAD > /dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		NAME="$PREFIX$(git rev-parse --abbrev-ref HEAD)$SUFFIX"
+	else
+		NAME=""
+	fi
+	printf '%s' "$NAME";
+}
+
+export PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE\$(current_branch)$SEAFOAM \$$NO_COLOR "
 
 # -- Random Useful Things -- #
 
@@ -259,4 +271,13 @@ isight() {
 	fi
 	echo "Please specify an action ('isight disable' or 'isight enable')"
 	) 2>/dev/null
+}
+
+stems() {
+	if [ -z "$2" ]; then
+		CONFIG="2stems"
+	else
+		CONFIG="$2"
+	fi
+	spleeter separate -i $1 -p spleeter:$CONFIG -o output
 }

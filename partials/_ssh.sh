@@ -1,6 +1,8 @@
 ##
-# Create a new ssh keypair and add to the keychain
-###
+# Create a new SSH keypair and add to the keychain
+#
+# @author: Travis Aaron Wagner
+##
 new-ssh() {
   OPTIND=1 # restart getopts index (otherwise will only take options the first time it's run)
   TYPE="rsa"

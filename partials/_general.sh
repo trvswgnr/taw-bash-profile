@@ -4,7 +4,7 @@
 set completion-ignore-case On
 
 # navigation
-cd() { builtin cd "$@"; ls -Gp; }  # Always list directory contents upon 'cd'
+cd() { builtin cd "$@"; ls -Gpa; }  # Always list directory contents upon 'cd'
 alias cd..='cd ../'            # Go back 1 directory level
 alias ..='cd ../'              # Go back 1 directory level (alias)
 alias ...='cd ../../'          # Go back 2 directory levels
@@ -26,7 +26,7 @@ alias edit_profile='edit ~/.bash_profile'
 alias load_profile='source ~/.bash_profile'
 
 # open file in preferred code editor
-alias edit='code'
+alias edit='code-insiders'
 
 # Navigate to the MAMP websites folder
 alias htdocs='cd /Applications/MAMP/htdocs/'
@@ -47,3 +47,5 @@ h() {
 
 # just a test function to make sure the file is included and working
 testing() { echo 'testing 1 2 3'; }
+
+alias xfind='find . | xargs -n1 grep -ils'
