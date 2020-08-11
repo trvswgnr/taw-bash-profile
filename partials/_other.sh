@@ -281,3 +281,5 @@ stems() {
 	fi
 	spleeter separate -i $1 -p spleeter:$CONFIG -o output
 }
+
+alias yolo="git push --force"
