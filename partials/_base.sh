@@ -18,4 +18,4 @@ export PATH="/Users/trav/Library/Python/3.7/bin:$PATH"
 export PATH="/Users/trav/miniconda/bin:$PATH"
 
 # set default editor
-# export EDITOR="code"
+export EDITOR="code-insiders"
