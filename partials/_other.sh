@@ -283,3 +283,8 @@ stems() {
 }
 
 alias yolo="git push --force"
+
+# usage: phpdoc -t docs -f myfile.php --template="clean"
+# alias phpdoc="/Users/trav/phpDocumentor-2.9.0/phpDocumentor-2.9.0/bin/phpdoc"
+
+alias phpdoc2github="php ~/phpdoc2github/phpdoc2github.php"

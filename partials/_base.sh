@@ -17,5 +17,10 @@ export PATH="/Users/trav/Library/Python/3.7/bin:$PATH"
 
 export PATH="/Users/trav/miniconda/bin:$PATH"
 
+export PATH="/Users/trav/vendor/bin:$PATH"
+
+export PATH="/Users/trav/projects/meat:$PATH"
+
 # set default editor
-export EDITOR="code-insiders"
+export VISUAL="code-insiders"
+export EDITOR="$VISUAL"

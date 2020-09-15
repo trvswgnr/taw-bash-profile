@@ -7,6 +7,11 @@ alias git-change='git checkout'
 alias cbranch='git checkout'
 alias st="git status"
 alias commit='git commit'
+alias g=git
+checkout() {
+	( git checkout $1 ) 2>/dev/null || git checkout -b $1
+}
+
 gcaa() { git add --all && git commit -m "$*" ; } # add and commit all files
 git-prune() {
 	X=${1:-origin}
