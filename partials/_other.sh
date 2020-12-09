@@ -89,7 +89,8 @@ current_branch() {
 	printf '%s' "$NAME";
 }
 
-export PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE\$(current_branch)$SEAFOAM \$$NO_COLOR "
+PS1="$NO_COLOR----------------------------------\n$MAGENTA\u$GOLD \W$BLUE\$(current_branch)$SEAFOAM \$$NO_COLOR"
+export PS1=$(echo "$PS1 " | sed 's/(base)//')
 
 # -- Random Useful Things -- #
 
@@ -288,3 +289,31 @@ alias yolo="git push --force"
 # alias phpdoc="/Users/trav/phpDocumentor-2.9.0/phpDocumentor-2.9.0/bin/phpdoc"
 
 alias phpdoc2github="php ~/phpdoc2github/phpdoc2github.php"
+
+dl-icloud-files() {
+	DIR=$1
+	if [ -z "$1" ]; then
+		DIR=''.
+	fi
+	TEST=$(find $DIR -name '*.icloud' | wc -c)
+	if test $TEST -eq 0; then
+		echo "No undownloaded icloud files found."
+		return
+	fi
+	find $DIR -name '*.icloud'
+	find $DIR -name '.*icloud' | perl -pe 's|(.*)/.(.*).icloud|$1/$2|s' | while read file; do brctl download "$file"; done
+}
+
+watch-folder() {
+    dir="$1"
+    chsum1=`digest -a md5 $dir | awk '{print $1}'`
+    chsum2=$chsum1
+
+    while [ $chsum1 -eq $chsum2 ]
+    do
+        sleep 10
+        chsum2=`digest -a md5 $dir | awk '{print $1}'`
+    done
+
+    eval ${@:2}
+}
